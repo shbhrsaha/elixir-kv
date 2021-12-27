@@ -9,9 +9,10 @@ defmodule KV.Supervisor do
   def init(:ok) do
     children = [
       # name must be atom - we can use module name here because only one such process will be created
-      {KV.Registry, name: KV.Registry}
+      {KV.Registry, name: KV.Registry},
+      {DynamicSupervisor, name: KV.BucketSupervisor, strategy: :one_for_one}
     ]
 
-    Supervisor.init(children, strategy: :one_for_one)
+    Supervisor.init(children, strategy: :one_for_all)
   end
 end

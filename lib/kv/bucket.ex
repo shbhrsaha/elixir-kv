@@ -1,5 +1,6 @@
 defmodule KV.Bucket do
-  use Agent
+  # temporary restart prevents Dynamic Supervisor from restarting bucket when it crashes
+  use Agent, restart: :temporary
 
   @doc """
   Starts a new bucket.
