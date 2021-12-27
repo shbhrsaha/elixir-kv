@@ -11,7 +11,3 @@ Interactive:
 Test:
 
 `mix test`
-
-Overview:
-
-KV.Supervisor (Supervisor) -> makes sure KV.Registry (GenServer) is always running -> makes sure KV.Bucket (Agent) is monitored and retrieved
